@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachtwoord Vergeten - Klaas Vis</title>
+    <link rel="icon" href="file:///C:/Users/Randy/OneDrive/Bureaublad/Klaas%20Vis%20Klantportaal/logo.png.png" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #2b3d54;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .background-anim {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .background-anim svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotateTriangles 25s linear infinite;
+        }
+
+        @keyframes rotateTriangles {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: relative;
+            padding: 1rem;
+        }
+
+        .login-box {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 360px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        h2 {
+            color: #003366;
+            margin-bottom: 1.5rem;
+            font-family: 'Georgia', serif;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .input-group:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #003366;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #003366;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        button:hover {
+            background-color: #002244;
+        }
+
+        .register-link {
+            display: block;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #003366;
+            text-decoration: none;
+        }
+
+        .register-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .login-box {
+                padding: 1.5rem;
+            }
+
+            .logo img {
+                width: 120px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            input {
+                padding: 0.75rem;
+            }
+
+            button {
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-anim">
+        <svg viewBox="0 0 800 600">
+            <g fill="#ffffff" opacity="0.4">
+                <polygon points="100,100 120,80 140,100 120,120"/>
+                <polygon points="300,200 320,180 340,200 320,220"/>
+                <polygon points="500,300 520,280 540,300 520,320"/>
+                <polygon points="700,400 720,380 740,400 720,420"/>
+                <polygon points="200,500 220,480 240,500 220,520"/>
+                <polygon points="400,100 420,80 440,100 420,120"/>
+                <polygon points="600,200 620,180 640,200 620,220"/>
+                <polygon points="100,300 120,280 140,300 120,320"/>
+                <polygon points="300,400 320,380 340,400 320,420"/>
+                <polygon points="500,500 520,480 540,500 520,520"/>
+                <polygon points="700,100 720,80 740,100 720,120"/>
+                <polygon points="200,200 220,180 240,200 220,220"/>
+                <polygon points="400,300 420,280 440,300 420,320"/>
+                <polygon points="600,400 620,380 640,400 620,420"/>
+            </g>
+        </svg>
+    </div>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <img src="file:///C:/Users/Randy/OneDrive/Bureaublad/Klaas%20Vis%20Klantportaal/logo.png.png" alt="Klaas Vis Logo" onerror="this.onerror=null; this.src='default-logo.png';">
+            </div>
+            <h2>Wachtwoord Vergeten</h2>
+            <form id="forgotPasswordForm">
+                <div class="input-group">
+                    <label for="email">E-mailadres</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit">Verstuur Link</button>
+                <a href="C:\Users\Randy\OneDrive\Bureaublad\Klaas Vis Klantportaal/Inlog.html" class="register-link">Terug naar inloggen</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
